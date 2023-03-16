@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for vinyl in vinyls %}
+
+<div class="card">
+    <a href="/vinyls/{{ vinyl.id }}">
+  <div class="card-content">
+    <div class="flex-container" style="color: black;">
+      <div>
+        <span class="card-title">{{ vinyl.title }}</span>
+        <p>{{ vinyl.artist }}</p>
+        <p>{{ vinyl.year_released }}</p>
+        <p>{{ vinyl.genre }}</p>
+        <p>{{ vinyl.description }}</p>
+
+
+      </div>
+
+      <!-- {{ vinyl.image }} -->
+      <div>
+        {% load static %} 
+        <img width="150px" height="150px" src={% static vinyl.image|cut:'main_app/static/' %} />
+      </div>
+    </div>
+  </div>
+    </a>
+</div>
+
+
+
+{% endfor %}
+
+{% endblock %}

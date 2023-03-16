@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Delete Vinyl</h3>
+
+<h4>Are you sure you want to delete <span class="teal-text">{{ object.title }}</span>?</h4>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="DELETE" class="btn">
+    <a href="{% url 'detail' vinyl.id %}">CANCEL</a>
+
+</form>
+
+
+
+
+{% endblock %}
